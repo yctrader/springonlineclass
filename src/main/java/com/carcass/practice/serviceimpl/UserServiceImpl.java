@@ -7,6 +7,7 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 
 import com.carcass.practice.entity.User;
+import com.carcass.practice.handler.UserNotFound;
 import com.carcass.practice.service.UserService;
 
 @Service
@@ -24,7 +25,7 @@ public class UserServiceImpl implements UserService{
 			u.setUserName(user.getUserName());
 		}
 		}
-		return null;
+		throw new UserNotFound("Incorrect ID");
 	}
 
 	public User deleteUser(String id) {
@@ -34,7 +35,7 @@ public class UserServiceImpl implements UserService{
 				if(u.getId().equals(id)) al.remove(u);
 				return u;
 			}
-		return null;
+		throw new UserNotFound("Incorrect ID");
 	}
 
 	public User register(User user) {
