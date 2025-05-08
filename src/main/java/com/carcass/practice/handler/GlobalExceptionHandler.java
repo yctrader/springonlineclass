@@ -19,4 +19,10 @@ public class GlobalExceptionHandler {
 	{
 		return "Something Went Wrong";
 	}
+	
+//	@ExceptionHandler(NoResourceFoundException.class)
+//	public String demo(NoResourceFoundException e)
+//	{
+//		return "Something Went Wrong";
+//	}
 }
