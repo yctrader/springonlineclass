@@ -6,6 +6,8 @@ import com.carcass.practice.serviceimpl.UserServiceImpl;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -43,6 +45,19 @@ public class LearningController {
 		public List<User> getAllUser()
 		{
 			return userserviceimpl.getAllUsers();
+		}
+		
+		@GetMapping("/try")
+		public int trail()
+		{
+			return 10;
+		}
+		
+		@PostMapping("/registernew")
+		public ResponseEntity<User> createUSERnew(@RequestBody User user){
+		user=userserviceimpl.register(user);
+		
+		return new ResponseEntity<User>(user,HttpStatus.OK);	
 		}
 }
 

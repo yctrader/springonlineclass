@@ -13,4 +13,10 @@ public class GlobalExceptionHandler {
 	{
 		return "Please Provide Correct User ID";
 	}
+	
+	@ExceptionHandler(Exception.class)
+	public String demo(Exception e)
+	{
+		return "Something Went Wrong";
+	}
 }
