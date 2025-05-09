@@ -1,15 +1,22 @@
 package com.carcass.practice.entity;
 
+import org.springframework.data.annotation.Id;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+
+@Entity
 public class User {
 
-	@Override
-	public String toString() {
-		return "User [id=" + id + ", username=" + username + ", name=" + name + "]";
-	}
-
+	
+	
+	@Id
 	public String id;
+	
+	@Column
 	private String username;
+	
+	@Column
 	private String name;
 
 	public String getId() {
@@ -42,6 +49,11 @@ public class User {
 	public String getName() {
 		// TODO Auto-generated method stub
 		return name;
+	}
+	
+	@Override
+	public String toString() {
+		return "User [id=" + id + ", username=" + username + ", name=" + name + "]";
 	}
 
 }

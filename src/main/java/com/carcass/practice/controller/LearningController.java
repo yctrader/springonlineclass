@@ -53,11 +53,18 @@ public class LearningController {
 			return 10;
 		}
 		
-		@PostMapping("/registernew")
+		@PostMapping("/register2")
 		public ResponseEntity<User> createUSERnew(@RequestBody User user){
 		user=userserviceimpl.register(user);
 		
 		return new ResponseEntity<User>(user,HttpStatus.OK);	
+		}
+		
+		@PostMapping("/register3")
+		public ResponseEntity<?> createUSERnew(@RequestBody User user){
+		user=userserviceimpl.register(user);
+		
+		return new ResponseEntity.ok(null);	
 		}
 }
 
